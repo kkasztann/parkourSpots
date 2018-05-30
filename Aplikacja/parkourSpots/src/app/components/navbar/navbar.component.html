@@ -19,8 +19,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#" routerLink="/parkour">Parkour</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/help">Help</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Help</a>
+        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
+          <a class="dropdown-item" href="#" routerLink="/faq">FAQ</a>
+          <a class="dropdown-item" href="#" routerLink="/about">About</a>
+        </div>
       </li>
     </ul>
     <ul class="navbar-nav mx-auto">
