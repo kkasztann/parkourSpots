@@ -1,0 +1,2 @@
+# parkourSpots
+Aplikacja [praca dyplomowa]
