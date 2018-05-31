@@ -30,8 +30,8 @@ export class RegisterPageComponent implements OnInit {
         this.router.navigate(['/userSettings']);
       }).catch((err) => {
         this.flashMessages.show('Użytkownik NIEzarejerstrowany - coś poszło nie tak!',
-        { cssClass: 'alert-danger', timeout: 4000 });
-        console.log(err);
+          { cssClass: 'alert-danger', timeout: 4000 });
+        this.flashMessages.show(err, { cssClass: 'alert-danger', timeout: 6000 });
       });
   }
 
