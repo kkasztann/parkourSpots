@@ -36,6 +36,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   onClickGoogleLogin() {
-    console.log('test');
+
   }
 }
