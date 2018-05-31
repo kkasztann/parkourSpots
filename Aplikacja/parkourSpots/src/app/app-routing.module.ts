@@ -11,6 +11,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { UserSettingsPageComponent } from './components/user-settings-page/user-settings-page.component';
 
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
-  {path: 'userSettings', component: UserSettingsPageComponent},
+  {path: 'userSettings', component: UserSettingsPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundPageComponent},
 ];
 
