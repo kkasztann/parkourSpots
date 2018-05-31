@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.loginEmail(this.email, this.password)
       .then((res) => {
         this.flashMessages.show('Użytkownik zalogowany - wszystko przebiegło poprawnie!',
-        { cssClass: 'alert-success', timeout: 4000 });
+          { cssClass: 'alert-success', timeout: 4000 });
         this.router.navigate(['/userSettings']);
       }).catch((err) => {
         this.flashMessages.show('Użytkownik NIEzalogowany - coś poszło nie tak!',
@@ -35,4 +35,10 @@ export class LoginPageComponent implements OnInit {
       });
   }
 
+  onClickGoogleLogin() {
+    this.authService.loginGoogle()
+      .then((res) => {
+        this.router.navigate(['/userSettings']);
+      }).catch(err => console.log(err));
+  }
 }

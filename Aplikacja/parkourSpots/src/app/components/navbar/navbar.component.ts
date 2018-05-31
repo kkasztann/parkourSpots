@@ -8,8 +8,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   public isLogin: boolean;
-  public name: string;
-  public email: string;
+  public userName = 'Bezimienny';
+  public userEmail: string;
+  public userPhoto: string;
 
   constructor(
     public authService: AuthService
@@ -19,8 +20,17 @@ export class NavbarComponent implements OnInit {
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.isLogin = true;
-        this.name = auth.displayName;
-        this.email = auth.email;
+        if (auth.displayName === null) {
+          this.userName = 'Bezimienny';
+        } else {
+          this.userName = auth.displayName;
+        }
+        this.userEmail = auth.email;
+        if (auth.photoURL === null) {
+          this.userPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNFX73rkB1nvKSoPeeKaijsaisKRaRPv4HDw8-9ElYqJQhSWlH';
+        } else {
+          this.userPhoto = auth.photoURL;
+        }
       } else {
         this.isLogin = false;
       }
