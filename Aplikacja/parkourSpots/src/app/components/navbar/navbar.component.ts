@@ -8,8 +8,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   public isLogin: boolean;
-  public name: string;
-  public email: string;
+  public userName: string;
+  public userEmail: string;
+  public userPhoto: string;
 
   constructor(
     public authService: AuthService
@@ -19,8 +20,9 @@ export class NavbarComponent implements OnInit {
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.isLogin = true;
-        this.name = auth.displayName;
-        this.email = auth.email;
+        this.userName = auth.displayName;
+        this.userEmail = auth.email;
+        this.userPhoto = auth.photoURL;
       } else {
         this.isLogin = false;
       }
