@@ -48,10 +48,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    FlashMessagesModule,
-    FlashMessagesService
+    FlashMessagesModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
