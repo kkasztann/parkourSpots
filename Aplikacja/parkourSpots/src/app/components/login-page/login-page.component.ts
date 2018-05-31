@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+  public email: string;
+  public password: string;
 
   constructor(
     public authService: AuthService,
@@ -14,6 +16,16 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  onSubmitLogin() {
+    this.authService.loginEmail(this.email, this.password)
+      .then((res) => {
+        this.router.navigate(['/userSettings']);
+      }).catch((err) => {
+        console.log(err);
+        this.router.navigate(['/login']);
+      });
   }
 
 }
