@@ -26,7 +26,7 @@ export class RegisterPageComponent implements OnInit {
     this.authService.registerUser(this.email, this.password)
       .then((res) => {
         this.flashMessages.show('Użytkownik zarejerstrowany - wszystko przebiegło poprawnie!',
-          { cssClass: 'alert-succes', timeout: 4000 });
+          { cssClass: 'alert-success', timeout: 4000 });
         this.router.navigate(['/userSettings']);
       }).catch((err) => {
         this.flashMessages.show('Użytkownik NIEzarejerstrowany - coś poszło nie tak!',
