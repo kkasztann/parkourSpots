@@ -45,14 +45,19 @@ export class LoginPageComponent implements OnInit {
         this.flashMessages.show('Użytkownik NIEzalogowany - coś poszło nie tak!',
           { cssClass: 'alert-danger', timeout: 4000 });
         this.flashMessages.show(err, { cssClass: 'alert-danger', timeout: 6000 });
-        console.log(err);
       });
   }
 
   onClickFacebookLogin() {
     this.authService.loginFacebook()
       .then((res) => {
+        this.flashMessages.show('Użytkownik zalogowany - wszystko przebiegło poprawnie!',
+          { cssClass: 'alert-success', timeout: 4000 });
         this.router.navigate(['/userSettings']);
-      }).catch(err => console.log(err));
+      }).catch(err => {
+        this.flashMessages.show('Użytkownik NIEzalogowany - coś poszło nie tak!',
+          { cssClass: 'alert-danger', timeout: 4000 });
+        this.flashMessages.show(err, { cssClass: 'alert-danger', timeout: 6000 });
+      });
   }
 }
