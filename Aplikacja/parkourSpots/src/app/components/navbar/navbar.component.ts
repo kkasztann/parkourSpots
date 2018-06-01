@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   public userPhoto: string;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public flashMessages: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,10 @@ export class NavbarComponent implements OnInit {
   }
 
   onClickLogout() {
+    this.flashMessages.show('Użytkownik wylogowany!',
+    { cssClass: 'alert-success', timeout: 4000 });
     this.authService.logout();
+
   }
 
 }
