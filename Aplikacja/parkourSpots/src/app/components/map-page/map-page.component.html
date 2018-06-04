@@ -1,12 +1,31 @@
 <div *ngIf="lat && lng">
+  <div *ngIf="allSpots | async as spots; else loading">
 
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng">
-      <agm-info-window>
-        <h4 style="color:black;">Traceuse</h4>
-        <p>You are here!</p>
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]=14>
+      <agm-marker [latitude]="lat" [longitude]="lng">
+        <agm-info-window>
+          <h4 style="color:black;">Traceuse</h4>
+          <p>You are here!</p>
+        </agm-info-window>
+      </agm-marker>
 
+
+      <agm-marker *ngFor="let spot of spots"
+      [latitude]="spot.data.lokalizacja.latitude"
+      [longitude]="spot.data.lokalizacja.longitude"
+      [iconUrl]="'https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_location-48.png'">
+
+
+        <agm-info-window>
+          <h3>
+            <strong>Location Details</strong>
+          </h3>
+        </agm-info-window>
+
+      </agm-marker>
+
+    </agm-map>
+  </div>
 </div>
+
+<ng-template #loading>Loading...</ng-template>
