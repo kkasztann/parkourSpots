@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let spot of allSpots | async" (click)="getSpot(spot.id)">
-    {{spot.data.name}}
+    {{spot.data.name}}  <strong>(<a (click)="deleteSpot(spot.id)">delete</a>)</strong>
   </li>
 </ul>
 

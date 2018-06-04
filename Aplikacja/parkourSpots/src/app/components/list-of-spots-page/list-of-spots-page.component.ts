@@ -42,4 +42,8 @@ export class ListOfSpotsPageComponent implements OnInit {
     this.spot = this.db.spot;
   }
 
+  deleteSpot(id) {
+    this.db.deleteSpot(id);
+  }
+
 }

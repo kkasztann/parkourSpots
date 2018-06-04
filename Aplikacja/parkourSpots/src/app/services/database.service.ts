@@ -36,4 +36,8 @@ export class DatabaseService {
     this.spotDoc = this.afs.doc('spots/' + id);
     this.spot = this.spotDoc.valueChanges();
   }
+
+  deleteSpot(id: string) {
+    this.afs.doc('spots/' + id).delete();
+  }
 }
