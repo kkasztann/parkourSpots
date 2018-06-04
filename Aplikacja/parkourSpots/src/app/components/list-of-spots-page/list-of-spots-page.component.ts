@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
+import { Spot, Lokalizacja } from '../../models/spot';
 
 @Component({
   selector: 'app-list-of-spots-page',
@@ -8,9 +9,25 @@ import { DatabaseService } from '../../services/database.service';
 })
 export class ListOfSpotsPageComponent implements OnInit {
   allSpots: any;
+
+  newSpot: Spot;
+
   constructor(private db: DatabaseService) {
     this.allSpots = db.spots;
-   }
+
+    this.newSpot = {
+      city: '',
+      creator: '',
+      description: '',
+      difficultyLevel: null,
+      lokalizacja:  {
+        latitude: null,
+        longitude: null
+      },
+      name: '',
+      rate: null
+    };
+  }
 
   ngOnInit() {
   }

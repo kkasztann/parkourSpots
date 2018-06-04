@@ -3,3 +3,13 @@
     {{spot.name}}
   </li>
 </ul>
+
+<input type="text" [(ngModel)]="newSpot.name" name="name" placeholder="Spot name..."><br>
+<input type="text" [(ngModel)]="newSpot.city" name="city" placeholder="City..."><br>
+<input type="text" [(ngModel)]="newSpot.creator" name="creator" placeholder="Creator... [automat]"><br>
+<input type="text" [(ngModel)]="newSpot.lokalizacja.latitude" name="latitude" placeholder="Latitude..."><br>
+<input type="text" [(ngModel)]="newSpot.lokalizacja.longitude" name="longtitude" placeholder="longitude..."><br>
+<input type="text" [(ngModel)]="newSpot.difficultyLevel" name="difficultyLevel" placeholder="DifficultyLevel..."><br>
+<input type="text" [(ngModel)]="newSpot.rate" name="rate" placeholder="Rate..."><br>
+<textarea [(ngModel)]="newSpot.creator" name="creator" placeholder="Description..."></textarea><br>
+<input type="submit" value="Add spot" (click)="addSpot()">
