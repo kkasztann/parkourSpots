@@ -10,7 +10,7 @@ import { SpotId } from '../models/spotId';
 })
 export class DatabaseService {
 
-  private spotsCol: AngularFirestoreCollection<Spot>;
+  public spotsCol: AngularFirestoreCollection<Spot>;
   public spots: any;
 
   private spotsColCity: AngularFirestoreCollection<Spot>;

@@ -13,7 +13,7 @@ export class MapPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.getUserLocation()
+    this.getUserLocation();
   }
 
   private getUserLocation() {
