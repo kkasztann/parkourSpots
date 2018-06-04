@@ -1,5 +1,5 @@
-<ul>
-  <li *ngFor="let spot of allSpots | async" (click)="getSpot(spot.id)">
+<ul *ngIf="allSpots | async as spots; else loading">
+  <li *ngFor="let spot of spots" (click)="getSpot(spot.id)">
     {{spot.data.name}}  <strong>(<a (click)="deleteSpot(spot.id)">delete</a>)</strong>
   </li>
 </ul>
@@ -25,3 +25,6 @@
 <textarea [(ngModel)]="newSpot.description" name="description" placeholder="Description..."></textarea>
 <br>
 <input type="submit" value="Add spot" (click)="addSpot(newSpot)">
+
+
+<ng-template #loading>Loading...</ng-template>
