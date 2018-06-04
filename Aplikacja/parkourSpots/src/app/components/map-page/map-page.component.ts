@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeoService } from '../../services/geo.service';
 
 @Component({
   selector: 'app-map-page',
@@ -10,10 +11,14 @@ export class MapPageComponent implements OnInit {
   lat: number;
   lng: number;
 
-  constructor() { }
+  allSpots: any;
+
+  constructor(private geo: GeoService) {
+    this.allSpots = geo.allSpots;
+   }
 
   ngOnInit() {
-    this.getUserLocation()
+    this.getUserLocation();
   }
 
   private getUserLocation() {
