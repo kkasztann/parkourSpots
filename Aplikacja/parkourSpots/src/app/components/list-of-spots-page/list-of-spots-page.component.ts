@@ -20,7 +20,7 @@ export class ListOfSpotsPageComponent implements OnInit {
       creator: '',
       description: '',
       difficultyLevel: null,
-      lokalizacja:  {
+      lokalizacja: {
         latitude: null,
         longitude: null
       },
@@ -30,6 +30,10 @@ export class ListOfSpotsPageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  addSpot(newSpot) {
+    this.db.addSpot(newSpot);
   }
 
 }

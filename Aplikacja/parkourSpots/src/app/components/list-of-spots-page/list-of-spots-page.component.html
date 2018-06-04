@@ -11,5 +11,5 @@
 <input type="text" [(ngModel)]="newSpot.lokalizacja.longitude" name="longtitude" placeholder="longitude..."><br>
 <input type="text" [(ngModel)]="newSpot.difficultyLevel" name="difficultyLevel" placeholder="DifficultyLevel..."><br>
 <input type="text" [(ngModel)]="newSpot.rate" name="rate" placeholder="Rate..."><br>
-<textarea [(ngModel)]="newSpot.creator" name="creator" placeholder="Description..."></textarea><br>
-<input type="submit" value="Add spot" (click)="addSpot()">
+<textarea [(ngModel)]="newSpot.description" name="description" placeholder="Description..."></textarea><br>
+<input type="submit" value="Add spot" (click)="addSpot(newSpot)">

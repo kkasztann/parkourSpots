@@ -15,5 +15,9 @@ export class DatabaseService {
   constructor(private afs: AngularFirestore) {
     this.spotsCol = this.afs.collection('spots');
     this.spots = this.spotsCol.valueChanges();
-   }
+  }
+
+  addSpot(newSpot: Spot) {
+    this.afs.collection('spots').add(newSpot);
+  }
 }
