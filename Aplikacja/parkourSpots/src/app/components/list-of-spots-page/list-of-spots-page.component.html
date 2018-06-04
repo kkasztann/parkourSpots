@@ -1,3 +1,5 @@
-<p>
-  list-of-spots-page works!
-</p>
+<ul *ngFor="let spot of allSpots | async">
+  <li>
+    {{spot.name}}
+  </li>
+</ul>

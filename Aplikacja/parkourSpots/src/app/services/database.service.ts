@@ -9,8 +9,8 @@ import { Spot } from '../models/spot';
 })
 export class DatabaseService {
 
-  spotsCol: AngularFirestoreCollection<Spot>;
-  spots: Observable<Spot[]>;
+  private spotsCol: AngularFirestoreCollection<Spot>;
+  public spots: Observable<Spot[]>;
 
   constructor(private afs: AngularFirestore) {
     this.spotsCol = this.afs.collection('spots');
