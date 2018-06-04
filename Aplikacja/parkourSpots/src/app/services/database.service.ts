@@ -13,6 +13,9 @@ export class DatabaseService {
   private spotsCol: AngularFirestoreCollection<Spot>;
   public spots: any;
 
+  private spotsColCity: AngularFirestoreCollection<Spot>;
+  public spotsCity: any;
+
   private spotDoc: AngularFirestoreDocument<Spot>;
   public spot: Observable<Spot>;
 
@@ -39,5 +42,17 @@ export class DatabaseService {
 
   deleteSpot(id: string) {
     this.afs.doc('spots/' + id).delete();
+  }
+
+  getSpotsCity(city: string) {
+    this.spotsColCity = this.afs.collection('spots', ref => ref.where('city', '==', city));
+    this.spotsCity = this.spotsColCity.snapshotChanges()
+      .map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Spot;
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
+      });
   }
 }
