@@ -9,11 +9,12 @@ import { Spot, Lokalizacja } from '../../models/spot';
 })
 export class ListOfSpotsPageComponent implements OnInit {
   allSpots: any;
-
+  spot: any;
   newSpot: Spot;
 
   constructor(private db: DatabaseService) {
     this.allSpots = db.spots;
+    this.spot = db.spot;
 
     this.newSpot = {
       city: '',
@@ -34,6 +35,11 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   addSpot(newSpot) {
     this.db.addSpot(newSpot);
+  }
+
+  getSpot(id) {
+    this.db.getSpot(id);
+    this.spot = this.db.spot;
   }
 
 }

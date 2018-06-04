@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Spot } from '../models/spot';
+import { SpotId } from '../models/spotId';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,11 @@ export class DatabaseService {
   private spotsCol: AngularFirestoreCollection<Spot>;
   public spots: any;
 
+  private spotDoc: AngularFirestoreDocument<Spot>;
+  public spot: Observable<Spot>;
+
   constructor(private afs: AngularFirestore) {
     this.spotsCol = this.afs.collection('spots');
-    // this.spots = this.spotsCol.valueChanges();
     this.spots = this.spotsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
@@ -27,5 +30,10 @@ export class DatabaseService {
 
   addSpot(newSpot: Spot) {
     this.afs.collection('spots').add(newSpot);
+  }
+
+  getSpot(id: string) {
+    this.spotDoc = this.afs.doc('spots/' + id);
+    this.spot = this.spotDoc.valueChanges();
   }
 }
