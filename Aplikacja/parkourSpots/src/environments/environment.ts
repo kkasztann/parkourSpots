@@ -11,7 +11,10 @@ export const environment = {
     projectId: 'parkourspots-f2638',
     storageBucket: 'parkourspots-f2638.appspot.com',
     messagingSenderId: '358940092127'
-  }
+  },
+
+  googleMapsKey: 'AIzaSyAKI-T37eiih6T2TuOuuh_GS5lzHMCYxeU'
+
 };
 
 /*
