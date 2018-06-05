@@ -19,12 +19,14 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   public currentSpot: Spot;
 
+  id: string;
+
 
   constructor(private db: DatabaseService, public authService: AuthService) {
     this.allSpots = db.spots;
     this.spot = db.spot;
     this.gateAddSpot = false;
-    this.gateModSpot = true;
+    this.gateModSpot = false;
 
     this.newSpot = {
       city: '',
@@ -66,24 +68,49 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   addSpot(newSpot) {
     this.db.addSpot(newSpot);
+
+
+    this.newSpot = {
+      city: '',
+      creator: this.newSpot.creator,
+      description: '',
+      difficultyLevel: null,
+      lokalizacja: {
+        latitude: null,
+        longitude: null
+      },
+      name: '',
+      rate: null
+    };
   }
 
   getSpot(id) {
-    this.db.getSpot(id);
-    this.spot = this.db.spot.map( dSpot => {
-      this.currentSpot.name = dSpot.name;
-      this.currentSpot.city = dSpot.city;
-      this.currentSpot.creator = dSpot.creator;
-      this.currentSpot.lokalizacja.latitude = dSpot.lokalizacja.latitude;
-      this.currentSpot.lokalizacja.longitude = dSpot.lokalizacja.longitude;
-      this.currentSpot.difficultyLevel = dSpot.difficultyLevel;
-      this.currentSpot.rate = dSpot.rate;
-      this.currentSpot.description = dSpot.description;
-    });
+    if (this.isLogin) {
+      this.db.getSpot(id);
+      this.spot = this.db.spot.map(dSpot => {
+        this.currentSpot.name = dSpot.name;
+        this.currentSpot.city = dSpot.city;
+        this.currentSpot.creator = dSpot.creator;
+        this.currentSpot.lokalizacja.latitude = dSpot.lokalizacja.latitude;
+        this.currentSpot.lokalizacja.longitude = dSpot.lokalizacja.longitude;
+        this.currentSpot.difficultyLevel = dSpot.difficultyLevel;
+        this.currentSpot.rate = dSpot.rate;
+        this.currentSpot.description = dSpot.description;
+
+        if (this.currentSpot.creator === this.newSpot.creator) {
+          this.gateModSpot = true;
+        } else {
+          this.gateModSpot = false;
+        }
+      });
+      this.id = id;
+    }
   }
 
-  deleteSpot(id) {
-    this.db.deleteSpot(id);
+  onClickDelete(id) {
+    this.gateModSpot = false;
+    this.db.deleteSpot(this.id);
+    this.spot = this.db.spot;
   }
 
   showAddSpot() {

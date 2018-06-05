@@ -19,6 +19,7 @@ export class DatabaseService {
   private spotDoc: AngularFirestoreDocument<Spot>;
   public spot: Observable<Spot>;
 
+
   constructor(private afs: AngularFirestore) {
     this.spotsCol = this.afs.collection('spots');
     this.spots = this.spotsCol.snapshotChanges()
