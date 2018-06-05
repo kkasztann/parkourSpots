@@ -107,7 +107,7 @@ export class ListOfSpotsPageComponent implements OnInit {
     }
   }
 
-  onClickDelete(id) {
+  onClickDelete() {
     this.gateModSpot = false;
     this.db.deleteSpot(this.id);
     this.spot = this.db.spot;
@@ -115,6 +115,10 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   showAddSpot() {
     this.gateAddSpot = !this.gateAddSpot;
+  }
+
+  onClickUpdate() {
+    this.db.updateSpot(this.id, this.currentSpot);
   }
 
 }

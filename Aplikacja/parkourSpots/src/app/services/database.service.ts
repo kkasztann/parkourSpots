@@ -56,4 +56,9 @@ export class DatabaseService {
         });
       });
   }
+
+  updateSpot(id: string, spot: Spot) {
+    this.spotDoc = this.afs.doc('spots/' + id);
+    this.spotDoc.update(spot);
+  }
 }

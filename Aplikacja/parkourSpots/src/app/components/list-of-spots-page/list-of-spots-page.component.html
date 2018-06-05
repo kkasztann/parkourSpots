@@ -97,8 +97,8 @@
             <textarea [(ngModel)]="currentSpot.description" name="description" placeholder="Opis..." maxlength="250" rows="5" class="form-control"></textarea>
           </div>
           <div class="d-flex justify-content-around">
-            <button id="updateButton" class="btn btn-success btn-lg" (click)="onClickUpdate(spot.id)">Zaktualizuj</button>
-            <button id="deleteButton" class="btn btn-danger btn-lg" (click)="onClickDelete(spot.id)">Usuń</button>
+            <button id="updateButton" class="btn btn-success btn-lg" (click)="onClickUpdate()">Zaktualizuj</button>
+            <button id="deleteButton" class="btn btn-danger btn-lg" (click)="onClickDelete()">Usuń</button>
           </div>
         </div>
       </div>
