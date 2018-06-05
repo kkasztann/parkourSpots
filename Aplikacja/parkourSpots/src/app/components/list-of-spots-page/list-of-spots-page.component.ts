@@ -39,6 +39,7 @@ export class ListOfSpotsPageComponent implements OnInit {
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.isLogin = true;
+        this.newSpot.creator = auth.uid;
       } else {
         this.isLogin = false;
       }
