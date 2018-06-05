@@ -12,9 +12,12 @@ export class ListOfSpotsPageComponent implements OnInit {
   spot: any;
   newSpot: Spot;
 
+  gateAddSpot: boolean;
+
   constructor(private db: DatabaseService) {
     this.allSpots = db.spots;
     this.spot = db.spot;
+    this.gateAddSpot = false;
 
     this.newSpot = {
       city: '',
@@ -44,6 +47,10 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   deleteSpot(id) {
     this.db.deleteSpot(id);
+  }
+
+  showAddSpot() {
+    this.gateAddSpot = !this.gateAddSpot;
   }
 
 }

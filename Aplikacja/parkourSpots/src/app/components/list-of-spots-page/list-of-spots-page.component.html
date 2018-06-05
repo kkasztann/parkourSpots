@@ -53,8 +53,8 @@
     <div class="card">
       <div class="card-body">
 
-        <h1 class="text-center">Dodaj spota</h1>
-
+        <h1 id="dodajSpota" (click)="showAddSpot()">Nowy spot</h1>
+        <div *ngIf="gateAddSpot">
         <div class="form-group">
             <label for="name">Nazwa</label>
         <input type="text" [(ngModel)]="newSpot.name" name="name" placeholder="Nazwa spota..." class="form-control">
@@ -95,7 +95,7 @@
       </div>
 
         <input type="submit" value="Dodaj" (click)="addSpot(newSpot)" class="btn btn-primary btn-block btn-lg">
-
+      </div>
       </div>
     </div>
   </div>
