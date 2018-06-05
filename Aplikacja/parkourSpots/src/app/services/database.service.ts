@@ -19,6 +19,7 @@ export class DatabaseService {
   private spotDoc: AngularFirestoreDocument<Spot>;
   public spot: Observable<Spot>;
 
+
   constructor(private afs: AngularFirestore) {
     this.spotsCol = this.afs.collection('spots');
     this.spots = this.spotsCol.snapshotChanges()
@@ -54,5 +55,10 @@ export class DatabaseService {
           return { id, data };
         });
       });
+  }
+
+  updateSpot(id: string, spot: Spot) {
+    this.spotDoc = this.afs.doc('spots/' + id);
+    this.spotDoc.update(spot);
   }
 }
