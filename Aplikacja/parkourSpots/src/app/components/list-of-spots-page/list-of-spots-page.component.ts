@@ -10,18 +10,36 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ListOfSpotsPageComponent implements OnInit {
   allSpots: any;
-  spot: any;
+  public spot: any;
   newSpot: Spot;
 
   public isLogin: boolean;
   gateAddSpot: boolean;
+  gateModSpot: boolean;
+
+  public currentSpot: Spot;
+
 
   constructor(private db: DatabaseService, public authService: AuthService) {
     this.allSpots = db.spots;
     this.spot = db.spot;
     this.gateAddSpot = false;
+    this.gateModSpot = true;
 
     this.newSpot = {
+      city: '',
+      creator: '',
+      description: '',
+      difficultyLevel: null,
+      lokalizacja: {
+        latitude: null,
+        longitude: null
+      },
+      name: '',
+      rate: null
+    };
+
+    this.currentSpot = {
       city: '',
       creator: '',
       description: '',
@@ -52,7 +70,16 @@ export class ListOfSpotsPageComponent implements OnInit {
 
   getSpot(id) {
     this.db.getSpot(id);
-    this.spot = this.db.spot;
+    this.spot = this.db.spot.map( dSpot => {
+      this.currentSpot.name = dSpot.name;
+      this.currentSpot.city = dSpot.city;
+      this.currentSpot.creator = dSpot.creator;
+      this.currentSpot.lokalizacja.latitude = dSpot.lokalizacja.latitude;
+      this.currentSpot.lokalizacja.longitude = dSpot.lokalizacja.longitude;
+      this.currentSpot.difficultyLevel = dSpot.difficultyLevel;
+      this.currentSpot.rate = dSpot.rate;
+      this.currentSpot.description = dSpot.description;
+    });
   }
 
   deleteSpot(id) {
