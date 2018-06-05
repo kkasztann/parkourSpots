@@ -20,6 +20,7 @@ export class ListOfSpotsPageComponent implements OnInit {
   public currentSpot: Spot;
 
   id: string;
+  city: string;
 
 
   constructor(private db: DatabaseService, public authService: AuthService) {
