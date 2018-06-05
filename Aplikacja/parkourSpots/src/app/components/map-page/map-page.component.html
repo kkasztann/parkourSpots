@@ -3,17 +3,18 @@
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]=14>
       <agm-marker [latitude]="lat" [longitude]="lng">
         <agm-info-window>
-          <h4>Traceuse</h4>
+          <h5>Traceuse</h5>
           <p>You are here!</p>
         </agm-info-window>
       </agm-marker>
 
-      <agm-marker *ngFor="let spot of spots"
-      [latitude]="spot.data.lokalizacja.latitude"
-      [longitude]="spot.data.lokalizacja.longitude"
-      [iconUrl]="'https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_location-48.png'">
+      <agm-marker *ngFor="let spot of spots" [latitude]="spot.data.lokalizacja.latitude" [longitude]="spot.data.lokalizacja.longitude"
+        [iconUrl]="'https://cdn0.iconfinder.com/data/icons/citycons/150/Citycons_location-48.png'">
         <agm-info-window>
-          <h4>Location Details</h4>
+          <h5>{{spot.data.name}}</h5>
+          <p>Trudność: {{spot.data.difficultyLevel}} na 5
+            <br> Ocena: {{spot.data.rate}} na 10</p>
+          <p>Opis: {{spot.data.description}}</p>
         </agm-info-window>
       </agm-marker>
 
