@@ -23,23 +23,22 @@
             <tr>
               <th scope="col">Nazwa</th>
               <th scope="col">Miasto</th>
-              <th scope="col">Lokalizacja (lat | long)</th>
+              <th scope="col" style="text-align: center">Lokalizacja (lat long)</th>
               <th scope="col">Trudność</th>
               <th scope="col">Atrakcyjność</th>
               <th scope="col">Opis</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr class="table-dark" *ngFor="let spot of spots">
               <td>{{spot.data.name}}</td>
               <td>{{spot.data.city}}</td>
-              <td>{{spot.data.lokalizacja.latitude}} | {{spot.data.lokalizacja.longitude}}</td>
-              <td>{{spot.data.difficultyLevel}}</td>
-              <td>{{spot.data.rate}}</td>
+              <td style="text-align: center">{{spot.data.lokalizacja.latitude}}   {{spot.data.lokalizacja.longitude}}</td>
+              <td style="text-align: center">{{spot.data.difficultyLevel}}</td>
+              <td style="text-align: center">{{spot.data.rate}}</td>
               <td>{{spot.data.description}}</td>
-              <td>M D</td>
             </tr>
+            <td colspan="6" class="table-info">Kliknij w spot aby go zmodyfikować albo usunąć</td>
           </tbody>
         </table>
       </div>
