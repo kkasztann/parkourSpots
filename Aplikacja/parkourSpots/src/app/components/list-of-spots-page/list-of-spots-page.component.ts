@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
 import { Spot, Lokalizacja } from '../../models/spot';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-list-of-spots-page',
@@ -12,9 +13,10 @@ export class ListOfSpotsPageComponent implements OnInit {
   spot: any;
   newSpot: Spot;
 
+  public isLogin: boolean;
   gateAddSpot: boolean;
 
-  constructor(private db: DatabaseService) {
+  constructor(private db: DatabaseService, public authService: AuthService) {
     this.allSpots = db.spots;
     this.spot = db.spot;
     this.gateAddSpot = false;
@@ -34,6 +36,13 @@ export class ListOfSpotsPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isLogin = true;
+      } else {
+        this.isLogin = false;
+      }
+    });
   }
 
   addSpot(newSpot) {

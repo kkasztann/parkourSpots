@@ -53,7 +53,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h1 id="dodajSpota" (click)="showAddSpot()">Nowy spot</h1>
+        <h1 id="dodajSpota" (click)="showAddSpot()" *ngIf="isLogin; else addNewSpot">Nowy spot</h1>
         <div *ngIf="gateAddSpot">
         <div class="form-group">
             <label for="name">Nazwa</label>
@@ -102,3 +102,5 @@
 </div>
 
 <ng-template #loading>Loading...</ng-template>
+
+<ng-template #addNewSpot >Dodawanie nowych spotów możliwe tylko po zalogowaniu!</ng-template>
