@@ -51,7 +51,7 @@
   <div class="col-md-6 mx-auto mt-3">
     <div class="card">
       <div class="card-body">
-        <h1 *ngIf="isLogin; else editSpot">Edytuj / Usuń spot</h1>
+        <h3 id="edytujSpota" *ngIf="isLogin; else editSpot">Edytuj / Usuń spot</h3>
         {{ (spot | async) }}
         <div *ngIf="gateModSpot; else modCurrentSpot">
           <div class="form-group">
@@ -114,7 +114,7 @@
     <div class="card">
       <div class="card-body">
 
-        <h1 id="dodajSpota" (click)="showAddSpot()" *ngIf="isLogin; else addNewSpot">Nowy spot</h1>
+        <h3 id="dodajSpota" (click)="showAddSpot()" *ngIf="isLogin; else addNewSpot">Nowy spot</h3>
         <div *ngIf="gateAddSpot">
           <div class="form-group">
             <label for="name">Nazwa</label>
