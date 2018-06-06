@@ -68,6 +68,9 @@ export class ListOfSpotsPageComponent implements OnInit {
   }
 
   addSpot(newSpot) {
+    this.newSpot.name = this.newSpot.name.charAt(0).toUpperCase() + this.newSpot.name.slice(1);
+    this.newSpot.city = this.newSpot.city.charAt(0).toUpperCase() + this.newSpot.city.slice(1);
+    this.newSpot.description = this.newSpot.description.charAt(0).toUpperCase() + this.newSpot.description.slice(1);
     this.db.addSpot(newSpot);
 
 
