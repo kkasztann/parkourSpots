@@ -21,7 +21,7 @@ export class DatabaseService {
 
 
   constructor(private afs: AngularFirestore) {
-    this.spotsCol = this.afs.collection('spots');
+    this.spotsCol = this.afs.collection('spots', ref => ref.orderBy('name'));
     this.spots = this.spotsCol.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
