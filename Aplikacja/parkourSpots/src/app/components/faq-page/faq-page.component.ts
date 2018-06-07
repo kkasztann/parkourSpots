@@ -8,7 +8,7 @@ import { HostListener } from '@angular/core';
 })
 export class FaqPageComponent implements OnInit, AfterViewChecked {
 
-  screenWidth: Number;
+  screenWidth: number;
 
   q1: boolean;
   q2: boolean;
