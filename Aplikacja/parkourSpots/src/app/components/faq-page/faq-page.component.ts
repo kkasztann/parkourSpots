@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqPageComponent implements OnInit {
 
-  constructor() { }
+  q1: boolean;
+  q2: boolean;
+  q3: boolean;
+  q4: boolean;
+  q5: boolean;
+
+  constructor() {
+    this.q1 = false;
+    this.q2 = false;
+    this.q3 = false;
+    this.q4 = false;
+    this.q5 = false;
+   }
 
   ngOnInit() {
   }

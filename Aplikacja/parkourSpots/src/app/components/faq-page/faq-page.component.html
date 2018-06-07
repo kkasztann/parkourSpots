@@ -1,3 +1,29 @@
-<p>
-  faq-page works!
-</p>
+<div class="row mt-3">
+  <div class="col-md-12 mx-auto">
+    <div class="card text-white transparency">
+      <div class="card-body">
+        <h4 class="mb-5">FAQ - Przed kontaktem sprawdź listę często zadawanych pytań</h4>
+        <button type="button" class="btn btn-outline-info mb-2" (click)="q1 = !q1">Czy korzystanie z aplikacji jest całkowicie darmowe?</button>
+        <div class="card-body" *ngIf="q1"><p>Korzystanie z aplikacji jest i będzie całkowicie darmowe.</p></div>
+        <br>
+
+        <button type="button" class="btn btn-outline-info mb-2" (click)="q2 = !q2">Czy możliwa jest edycja informacji na temat dodanego spota?</button>
+        <div class="card-body" *ngIf="q2"><p>Oczywiście istnieje taka możliwość wystarczy odnaleźć interesujący nas spot w zakładce LIST OF SPOTS i kliknąć na wybrany spot.</p></div>
+        <br>
+
+        <button type="button" class="btn btn-outline-info mb-2" (click)="q3 = !q3">Czy aplikacja rozpowszechnia informacje o użytkownikach podmiotom trzecim?</button>
+        <div class="card-body" *ngIf="q3"><p>Informacje wprowdzane przez użytkowników służą jedynie poprawie jakości prezentowanych treści i nie są w żaden sposób rozpowszechniane.</p></div>
+        <br>
+
+        <button type="button" class="btn btn-outline-info mb-2" (click)="q4 = !q4">Czy można zmienić raz wprowadzone dane użytkownika?</button>
+        <div class="card-body" *ngIf="q4"><p>Użytkownik ma w dowolnym momencie możliwość zmiany informacji na swój temat, w zakładce User Settings.</p></div>
+        <br>
+
+        <button type="button" class="btn btn-outline-info mb-2" (click)="q5 = !q5">Czy udostępniony jest do wglądu kod źródłowy projektu?</button>
+        <div class="card-body" *ngIf="q5"><p>Odnośnik do kodu źródłowego znajduje się w zakładce ABOUT.</p></div>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</div>
