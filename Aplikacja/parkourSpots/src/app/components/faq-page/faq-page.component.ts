@@ -35,7 +35,6 @@ export class FaqPageComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    console.log(this.screenWidth);
     this.onResize();
   }
 
