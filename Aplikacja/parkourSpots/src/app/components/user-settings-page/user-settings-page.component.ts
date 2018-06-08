@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-user-settings-page',
@@ -12,15 +13,25 @@ export class UserSettingsPageComponent implements OnInit {
   name = '';
   ID = '';
 
-  constructor() {
+  user: any;
+
+  constructor(public authService: AuthService) {
 
   }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.user = auth;
+        this.ID = auth.uid;
+        this.name = auth.displayName;
+        this.email = auth.email;
+      }
+    });
   }
 
   updateUser() {
-
+    this.authService.updateUser(this.name, this.email, this.password);
   }
 
   deleteUser() {

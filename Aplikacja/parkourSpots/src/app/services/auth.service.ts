@@ -8,6 +8,8 @@ import 'node_modules/rxjs/add/operator/map';
 })
 export class AuthService {
 
+  user: any;
+
   constructor(
     public afAuth: AngularFireAuth
   ) { }
@@ -43,6 +45,38 @@ export class AuthService {
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  updateUser(name: string, email: string, password: string) {
+    this.user = firebase.auth().currentUser;
+
+    if (this.user.displayName !== name && name !== null && name !== '') {
+      this.user.updateProfile({
+        displayName: name,
+      }).then(function () {
+        console.log('zmieniono nazwe');
+      }).catch(function (error) {
+        console.log('NIE zmieniono nazwy');
+      });
+    }
+
+    if (this.user.email !== email && email !== null && email !== '') {
+      this.user.updateEmail(email).then(function () {
+        console.log('zmieniono email');
+      }).catch(function (error) {
+        console.log('NIE zmieniono emaila');
+      });
+    }
+
+    if (this.user.password !== password && password !== null && password !== '') {
+      this.user.updatePassword(password).then(function () {
+        console.log('zmieniono hasło');
+      }).catch(function (error) {
+        console.log('NIE zmieniono hasła');
+      });
+    }
+
+  }
+
 
 
 
