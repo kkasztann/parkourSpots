@@ -18,9 +18,8 @@ export class UserSettingsPageComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public router: Router) {
-
-  }
+    public router: Router,
+  ) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth => {
@@ -34,12 +33,12 @@ export class UserSettingsPageComponent implements OnInit {
   }
 
   updateUser() {
-    this.authService.updateUser(this.name, this.email, this.password);
+      this.authService.updateUser(this.name, this.email, this.password);
+      location.reload();
   }
 
   deleteUser() {
-    this.router.navigate(['/login']);
     this.authService.deleteUser();
+    this.router.navigate(['/login']);
   }
-
 }
