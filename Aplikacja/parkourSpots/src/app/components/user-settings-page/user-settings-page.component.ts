@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSettingsPageComponent implements OnInit {
 
-  constructor() { }
+  private today = new Date();
+  year: number = this.today.getFullYear();
+
+
+  name = '';
+  email = '';
+  password = '';
+  ID = '';
+  yearSWT = '';
+  sex = '';
+
+  constructor() { console.log(this.year); }
 
   ngOnInit() {
+  }
+
+  updateUser() {
+
+  }
+
+  deleteUser() {
+
   }
 
 }
