@@ -2,7 +2,7 @@
   <div class="col-md-8 mx-auto">
     <div class="card text-white transparency">
       <div class="card-body">
-        <form (ngSubmit)="updateUser()">
+        <form (ngSubmit)="updateUser()" autocomplete="off">
           <div class="form-group">
             <label for="ID">ID</label>
             <input type="text" name="ID" id="ID" [(ngModel)]="ID" placeholder="Your ID" disabled class="form-control">
