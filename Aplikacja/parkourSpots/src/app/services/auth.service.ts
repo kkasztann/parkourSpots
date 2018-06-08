@@ -77,7 +77,14 @@ export class AuthService {
 
   }
 
+  deleteUser() {
+    this.user = firebase.auth().currentUser;
+    this.user.delete().then(function () {
+      console.log('usunięto usera');
+    }).catch(function (error) {
+      console.log('NIE usunieto usera');
+    });
 
-
+  }
 
 }
