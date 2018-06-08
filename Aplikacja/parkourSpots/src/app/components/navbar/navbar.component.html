@@ -36,6 +36,9 @@
         <a class="nav-link" href="#" routerLink="/register">Register</a>
       </li>
       <li class="nav-item" *ngIf="isLogin">
+          <a class="nav-link" href="#" routerLink="/userSettings">User settings</a>
+        </li>
+      <li class="nav-item" *ngIf="isLogin">
         <a class="nav-link" href="#" (click)="onClickLogout()">Logout</a>
       </li>
       <li class="nav-item text-center " *ngIf="isLogin">
