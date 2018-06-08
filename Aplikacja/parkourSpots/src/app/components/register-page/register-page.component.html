@@ -3,7 +3,7 @@
     <div class="card transparency">
       <div class="card-body">
         <h1>REGISTER</h1>
-        <form (submit)="onSubmitAddUser()">
+        <form (submit)="onSubmitAddUser()" autocomplete="off">
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control">
