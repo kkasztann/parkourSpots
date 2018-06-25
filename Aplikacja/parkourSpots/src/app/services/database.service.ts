@@ -3,7 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Spot } from '../models/spot';
-import { SpotId } from '../models/spotId';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +44,11 @@ export class DatabaseService {
     this.afs.doc('spots/' + id).delete();
   }
 
+  updateSpot(id: string, spot: Spot) {
+    this.spotDoc = this.afs.doc('spots/' + id);
+    this.spotDoc.update(spot);
+  }
+
   getSpotsCity(city: string) {
     this.spotsColCity = this.afs.collection('spots', ref => ref.where('city', '==', city));
     this.spotsCity = this.spotsColCity.snapshotChanges()
@@ -57,8 +61,4 @@ export class DatabaseService {
       });
   }
 
-  updateSpot(id: string, spot: Spot) {
-    this.spotDoc = this.afs.doc('spots/' + id);
-    this.spotDoc.update(spot);
-  }
 }
