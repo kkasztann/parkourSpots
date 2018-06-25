@@ -1,2 +1,2 @@
 # parkourSpots
-Aplikacja [praca dyplomowa]
+Aplikacja umożliwiająca dodawanie miejsc przeznaczonych do treningów parkour na mapę.
